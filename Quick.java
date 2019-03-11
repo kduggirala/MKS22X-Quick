@@ -7,6 +7,23 @@ public class Quick{
 			System.out.print(a + " ");
 		}
 	}
+	public static int quickselect(int[] data, int k) {
+		int start = 0;
+		int end = data.length;
+		while (true) {
+			int pivotIndex = partition(data, start, end);
+			if (pivotIndex == k) {
+				return data[k];
+			}
+			if (pivotIndex < k) {
+				start = pivotIndex + 1;
+			}
+			else {
+				end = pivotIndex - 1;
+			}
+		}
+	}
+	
 	public static int partition(int[] data, int start, int end) {
 		if (start == end) {
 			return start;
