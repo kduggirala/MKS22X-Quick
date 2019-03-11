@@ -2,9 +2,8 @@
 public class Quick{
 	public static void main(String[] args) {
 		int[] data = {17, 61, 67, 47, 93,12, 20, 4, 44, 68, 1234, 13, 34, 57, 16, 85, 21};
-		System.out.println(partition(data, 5, data.length - 3));
-		for (int a : data) {
-			System.out.print(a + " ");
+		for (int i = 0; i < data.length; i++) {
+			System.out.println(quickselect(data, i));
 		}
 	}
 	public static int quickselect(int[] data, int k) {
