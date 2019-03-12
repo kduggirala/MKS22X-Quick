@@ -1,7 +1,7 @@
 
 public class Quick{
 	public static void main(String[] args) {
-		int[] data = {17, 61, 67, 47, 93,12, 20, 4, 44, 68, 1234, 13, 13, 34, 57, 16, 85, 21, 134, 136, 137326};
+		int[] data = {26, 26, 214 ,123, 531, 423,4 ,5,13 ,5, 1,3 ,2345,236, 23,4, 12, 34,236, 345,12, 34, 26, 5 ,124, 532, 412,4};
 		for (int i = 0; i < data.length; i++) {
 			System.out.println(quickselect(data, i));
 		}
