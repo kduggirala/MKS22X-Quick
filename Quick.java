@@ -24,31 +24,37 @@ public class Quick{
 		}
 	}
 	
-	public static int partition(int[] data, int start, int end) {
+	public static int[] partition(int[] data, int start, int end) {
 		if (start == end) {
-			return start;
+			int[] pair = {start, end};
+			return pair;
 		}
 		int pivotIndex = ((int)(Math.random() * (end - start + 1))) + start;
 		int pivot = data[pivotIndex];
 		swap(data, start, pivotIndex);
 		pivotIndex = start++;
-		while (start != end) {
-			if (data[start] > pivot) {
+		int i = start;
+		while (i != end) {
+			if (data[i] > pivot) {
 				swap(data, start, end--);
 			}
-			else {
+			else if (data[start] < pivot){
+				swap(data, start, i);
 				start++;
+				i++;
+			}
+			else {
+				i++;
 			}
 		}
-		if (data[start] < pivot) {
-			swap(data, pivotIndex, start);
-			pivotIndex = start;
+		if (data[i] < pivot) {
+			swap(data, pivotIndex, i);
 		}
-		else if (data[start] > pivot){
-			swap(data, pivotIndex, start - 1);
-			pivotIndex = start - 1;
+		else {
+			swap(data, pivotIndex, --start);
 		}
-		return pivotIndex;
+		int[] pair = {start, end};
+		return pair;
 	}
 	private static void swap(int[] data, int index1, int index2) {
 		int temp = data[index1];
