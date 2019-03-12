@@ -11,15 +11,15 @@ public class Quick{
 		int start = 0;
 		int end = data.length - 1;
 		while (true) {
-			int pivotIndex = partition(data, start, end);
-			if (pivotIndex == k) {
+			int[] pivotIndices = partition(data, start, end);
+			if (k >= pivotIndices[0] && k <= pivotIndices[1] ) {
 				return data[k];
 			}
-			if (pivotIndex < k) {
-				start = pivotIndex + 1;
+			if (pivotIndices[0] < k) {
+				start = pivotIndices[0] + 1;
 			}
 			else {
-				end = pivotIndex - 1;
+				end = pivotIndices[1] - 1;
 			}
 		}
 	}
