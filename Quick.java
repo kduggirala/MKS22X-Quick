@@ -5,6 +5,8 @@ public class Quick{
 		for (int i = 0; i < data.length; i++) {
 			System.out.println(quickselect(data, i));
 		}
+		System.out.println();
+		
 	}
 	
 	public static int quickselect(int[] data, int k) {
@@ -15,11 +17,11 @@ public class Quick{
 			if (k >= pivotIndices[0] && k <= pivotIndices[1] ) {
 				return data[k];
 			}
-			if (pivotIndices[0] < k) {
-				start = pivotIndices[0] + 1;
+			if (pivotIndices[1] < k) {
+				start = pivotIndices[1] + 1;
 			}
 			else {
-				end = pivotIndices[1] - 1;
+				end = pivotIndices[0] - 1;
 			}
 		}
 	}
@@ -36,9 +38,9 @@ public class Quick{
 		int i = start;
 		while (i != end) {
 			if (data[i] > pivot) {
-				swap(data, start, end--);
+				swap(data, i, end--);
 			}
-			else if (data[start] < pivot){
+			else if (data[i] < pivot){
 				swap(data, start, i);
 				start++;
 				i++;
@@ -52,6 +54,9 @@ public class Quick{
 		}
 		else {
 			swap(data, pivotIndex, --start);
+			if (data[end] > pivot) {
+				end--;
+			}
 		}
 		int[] pair = {start, end};
 		return pair;
