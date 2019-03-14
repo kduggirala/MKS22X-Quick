@@ -1,7 +1,7 @@
 
 public class Quick{
 	public static void main(String[] args) {
-		int[] data = {26, 26, 214 ,123, 531, 423,4 ,5,13 ,5, 1,3 ,2345,236, 23,4, 12, 34,236, 345,12, 34, 26, 5 ,124, 532, 412,4};
+		int[] data = {999,999,999,4,1,0,3,2,999,999,999};
 		for (int i = 0; i < data.length; i++) {
 			System.out.println(quickselect(data, i));
 		}
@@ -13,7 +13,7 @@ public class Quick{
 		int start = 0;
 		int end = data.length - 1;
 		while (true) {
-			int[] pivotIndices = partition(data, start, end);
+			int[] pivotIndices = partitionDutch(data, start, end);
 			if (k >= pivotIndices[0] && k <= pivotIndices[1] ) {
 				return data[k];
 			}
@@ -26,7 +26,7 @@ public class Quick{
 		}
 	}
 	
-	public static int[] partition(int[] data, int start, int end) {
+	private static int[] partitionDutch(int[] data, int start, int end) {
 		if (start == end) {
 			int[] pair = {start, end};
 			return pair;
@@ -66,4 +66,6 @@ public class Quick{
 		data[index1] = data[index2];
 		data[index2] = temp;
 	}
+	
+	
 }
