@@ -2,10 +2,10 @@
 public class Quick{
 	public static void main(String[] args) {
 		int[] data = {999,999,999,4,1,0,3,2,999,999,999};
-		for (int i = 0; i < data.length; i++) {
-			System.out.println(quickselect(data, i));
+		quicksort(data);
+		for (int i : data) {
+			System.out.print(i + " ");
 		}
-		System.out.println();
 		
 	}
 	
@@ -27,7 +27,14 @@ public class Quick{
 	}
 	
 	public static void quicksort(int[] data) {
-		
+		quicksortHelp(data, 0, data.length - 1);
+	}
+	private static void quicksortHelp(int[] data, int start, int end) {
+		if (start < end) {
+			int[] partitionIndices = partitionDutch(data, start, end);
+			quicksortHelp(data, start, partitionIndices[0] - 1);
+			quicksortHelp(data, partitionIndices[1] + 1, end);
+		}
 	}
 	
 	private static int[] partitionDutch(int[] data, int start, int end) {
