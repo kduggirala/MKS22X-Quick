@@ -1,12 +1,13 @@
-
 public class Quick{
-	public static void main(String[] args) {
-		int[] data = {999,999,999,4,1,0,3,2,999,999,999};
-		quicksort(data);
-		for (int i : data) {
+	public static void main(String[]args){
+		int[] testing = new int[100];
+		for (int i = 0; i < 100; i++) {
+			testing[i] = (int) (Math.random() * 100);
+		}
+		quicksort(testing);
+		for(int i : testing) {
 			System.out.print(i + " ");
 		}
-		
 	}
 	
 	public static int quickselect(int[] data, int k) {
