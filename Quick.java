@@ -99,12 +99,14 @@ public class Quick{
 	private static void insertionsort(int[] data, int lo, int hi) {
 		int temp, j;
 		for(int i = lo + 1; i <= hi; i++) {
-	        temp = data[i];
-	        j = i - 1;
-	        while (j >= lo && data[j] > temp) {
-	            data[j + 1] = data[j--];
+	        if (data[i] < data[i-1]) {	
+				temp = data[i];
+	        	j = i - 1;
+	        	while (j >= lo && data[j] > temp) {
+	        		data[j + 1] = data[j--];
+	        	}
+	        	data[j + 1] = temp;
 	        }
-	        data[j + 1] = temp;
 	    }
 	}
 }
